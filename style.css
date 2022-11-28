@@ -1,27 +1,43 @@
+
+:root{
+    --basic-margin:.5rem;
+}
 *,*::after,*::before{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  
+}
+body{
+    background-color: rgb(2, 2, 51);
     color: white;
 }
 .flex-container{
     padding: 2rem;
-    background-color: rgb(2, 2, 51);
+ 
 display: flex;
 flex-wrap: wrap;
 align-items: center;
 justify-content: center;
-min-height: 100vh;
+
+
 }
 .card-container{
     position: relative;
-width: 33.3333%;
+    margin: .5rem;
+width:calc(33.33% - var(--basic-margin)) ;
 aspect-ratio: 1.2;
 background-image: url('../images/carmen-lopez-GetFBf5lDiw-unsplash.jpg');
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 border-radius: 3px;
+overflow: hidden;
+}
+@media (max-width: 400px) {
+    .card-container{
+        width: 100%;
+    }
 }
 .card-container a{
     position:absolute;
@@ -39,8 +55,24 @@ border-radius: 3px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* display: grid;
+place-items: center; */
     height: 100%;
+    transform: scale(0.9);
+    /* height: calc(100% - var(--basic-margin)*2); */
     padding: .5rem;
     text-align: center;
     z-index: 0;
+    transition: transform ease-in-out .3s;
+}
+.content-wrapper.content-overlay{
+    /* margin: var(--basic-margin); */
+    background-image: linear-gradient(to left, hsla(0, 0%, 100%, 0.39),hsla(0, 0%, 0%, 0.29));
+    border: double ;
+}
+.card-container:hover .content-wrapper.content-overlay{
+    transform: scale(1.05);
+}
+.card-container.animated .content-wrapper.content-overlay{
+    transform: scale(1.05);
 }
