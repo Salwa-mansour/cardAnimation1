@@ -1,3 +1,6 @@
+
+import './style.scss';
+
 var deviceWidth=document.documentElement.clientWidth;
 window.addEventListener("orientationchange",
  function () {
@@ -17,13 +20,13 @@ function absorvingCards(targetArr){
     const observer = new IntersectionObserver(
         entries =>{
         entries.forEach(entry=>{
-            entry.target.classList.toggle('animated',entry.isIntersecting)
-            console.log("dfsdf")
+            entry.target.classList.toggle('scrolledTo',entry.isIntersecting)
+           
         })
     }
         ,{
-            threshold:1,
-            // rootMargin:"-30px"
+            //threshold:1,
+             rootMargin:"-50%"
         }
        
     )
