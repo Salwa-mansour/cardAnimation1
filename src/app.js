@@ -1,5 +1,5 @@
 
-import './style.scss';
+ import './style.scss';
 
 var deviceWidth=document.documentElement.clientWidth;
 window.addEventListener("orientationchange",
